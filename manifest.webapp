@@ -1,0 +1,22 @@
+{
+    "version": "alpha",
+    "name": "JoeUI",
+    "launch_path": "/index.html",
+    "description": "JoeUI",
+    "icons": {
+        "16": "/style/icons/joe_ui.jpg",
+        "32": "/style/icons/joe_ui.jpg",
+        "48": "/style/icons/joe_ui.jpg",
+        "64": "/style/icons/joe_ui.jpg",
+        "128": "/style/icons/joe_ui.jpg"
+    },
+    "developer": {
+        "name": "Test",
+        "url": "http://localhost"
+    },
+    "installs_allowed_from": ["*"],
+    "default_locale": "en",
+    "fullscreen": "true",
+     "orientation":"landscape",
+     "type": "web"
+}

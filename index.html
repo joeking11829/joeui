@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    	<meta charset="utf-8">
+        <title>JoeUI</title>
+        <link href="style/background.css" rel="stylesheet">
+        <script defer type="text/javascript" src="js/image_loader.js"></script>
+
+    <script type="text/javascript">
+    var count = 0;
+    var count_limit = 25;
+
+    window.onload = function() {
+	
+	/*
+	console.log(window.Navigator.product);
+	console.log(window.Navigator.appName);
+	console.log(window.Navigator.platform);
+	console.log(window.Navigator.language);
+	alert("product:" + window.Navigator.product + ", appName:" + window.Navigator.appName + "." );
+	*/
+
+        //return false;
+
+        /*
+        console.log("window.ImageAnimationLoader -> " + window.ImageAnimationLoader);
+        var imageanimationloader = window.ImageAnimationLoader;
+        if(imageanimationloader){
+            imageanimationloader.init();
+            imageanimationloader.showImg();
+        }
+        */
+        
+        var photo = document.getElementById("photo");
+
+        //alert(photo);        
+
+        /*
+        photo.addEventListener('click', function(event){
+            var button_message = "event.button == " + event.button + "  " +
+                                 "event.buttons == " + event.buttons + "  " +
+                                 "event.type == " + event.type + "  " +
+                                 "event.target == " + event.target + "  " +
+                                 "event.detail == " + event.detail + "  ";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+        */
+
+        
+        photo.addEventListener('mousedown', function(event){
+            var button_message = "event.button == " + event.button + "  " +
+                                 "event.buttons == " + event.buttons + "  " +
+                                 "event.type == " + event.type + "  " +
+                                 "event.target == " + event.target + "  " +
+                                 "event.detail == " + event.detail + "  ";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+        
+
+        
+        photo.addEventListener('mouseup', function(event){
+            var button_message = "event.button == " + event.button + "  " +
+                                 "event.buttons == " + event.buttons + "  " +
+                                 "event.type == " + event.type + "  " +
+                                 "event.target == " + event.target + "  " +
+                                 "event.detail == " + event.detail + "  ";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+
+		
+        
+		photo.addEventListener('click', function(event){
+            var button_message = "event.button == " + event.button + "  " +
+                                 "event.buttons == " + event.buttons + "  " +
+                                 "event.type == " + event.type + "  " +
+                                 "event.target == " + event.target + "  " +
+                                 "event.detail == " + event.detail + "  ";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+
+
+        photo.addEventListener('touchstart', function(event){
+            var button_message = "touchstart event is trigger !!";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+		
+		
+		photo.addEventListener('touchend', function(event){
+            var button_message = "touchend event is trigger !!";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+
+
+		photo.addEventListener('touchmove', function(event){
+            var button_message = "touchmove event is trigger !!";
+            //var new_button_message = document.createTextNode(button_message);
+            
+            //this.appendChild(new_button_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" +  button_message + "</div><br>";
+            count++;
+        });
+
+
+        photo.addEventListener('mousemove', function(event){
+            
+            var mousemove_message = "mouse is moving on X = " + event.screenX + "  Y = " + event.screenY;
+
+            //var new_mousemove_message = document.createTextNode(mousemove_message);
+
+            //this.appendChild(new_mousemove_message);
+            if(count >= count_limit){
+                this.innerHTML = "";
+                count = 0;
+            }
+            this.innerHTML += "<div>" + mousemove_message + "</div><br>";
+            count++;
+        });
+
+
+        /*
+        photo.addEventListener('wheel', function(event){
+            
+            var wheel_message = "wheel on X = " + event.screenX + "  Y = " + event.screenY;
+
+            this.innerHTML = wheel_message;
+ 
+
+        });
+        */
+
+    }
+
+    function run(){
+        console.log("window.ImageAnimationLoader -> " + window.ImageAnimationLoader);
+        var imageanimationloader = window.ImageAnimationLoader;
+        if(imageanimationloader){
+            imageanimationloader.init();
+            imageanimationloader.showImg();
+        }
+    }
+
+    function captureFrame() {
+      try {
+
+        var VIDEO_WIDTH = 560;
+        var VIDEO_HEIGHT = 320;
+
+        var video_section = document.getElementById("video_section2");
+        
+        //var player = document.createElement("video");
+        //player.src = "resource/test.webm";
+        //player.videoWidth = VIDEO_WIDTH;
+        //player.videoHeight = VIDEO_HEIGHT;
+        //console.log(player);
+        //player.setAttribute("controls", "true");
+
+        var player = document.getElementById("demomp4_video");
+        var vw = player.videoWidth;
+        var vh = player.videoHeight;
+
+        //var vw = VIDEO_WIDTH;
+        //var vh = VIDEO_HEIGHT;
+
+
+ 
+        console.log("player.videoWidth == " + player.videoWidth + ", player.videoHeight == " + player.videoHeight);
+        console.log("vw == " + vw + ", vh == " + vh);
+
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = vw;
+        canvas.height = vh;
+
+        console.log("create canvas !!");
+
+        // Draw the current video frame into the image
+        ctx.drawImage(player, 0, 0, vw, vh);
+
+        console.log("execute canvas drawImage !!");
+        
+        /*
+        // Convert it to an image file and pass to the callback.
+        canvas.toBlob(function(image_blob){
+
+            console.log("canvas.toBlob");
+
+            var img = document.createElement("img");
+            img.src = image_blob;
+
+            video_section.appendChild(img);
+
+            //alert(image_blob);
+            //URL.revokeObjectURL(image_blob);
+
+        }, 'image/jpeg');
+        */
+
+        //video_section.appendChild(player);
+        video_section.appendChild(canvas);
+
+      }
+      catch (e) {
+        console.error('Exception in captureFrame:', e, e.stack);
+      }
+    }
+
+    function getMetadata(){
+
+        var player = document.getElementById("demomp4_video");
+        var log = document.getElementById("log");
+
+
+        var metadata = player.mozGetMetadata;
+
+        //console.log("Metadata: " + metadata);
+        log.innerHTML = "Metadata: " + metadata;
+
+    }
+
+    function setMetadata(){
+
+        var player = document.getElementById("demomp4_video");
+
+        player.preload = "metadata";
+
+    }
+
+    </script>
+
+    </head>
+    <body style="" >
+
+
+        <div id="photo" style="overflow: hidden;" >
+            TEST FOR MOUSE CURSOR
+        </div>
+	
+		<!--
+        <button style="width: 480px; height: 100px; font-size: 35px; font-weight: bold;" 
+                    onclick="setMetadata();">Set Preload to metadata</button>
+        <br>
+        <button style="width: 480px; height: 100px; font-size: 35px; font-weight: bold;" 
+                    onclick="captureFrame();">Create Preview Image</button>
+
+
+        <br>
+        <br>
+		-->
+
+        <!--
+        <section id="video_section" >
+            H.263 3GP VIDEO TEST
+            <video id="video_source" controls>
+                <source src="resource/test.3gp" type="video/3gpp">
+            </video>
+        </section>
+        -->
+        
+		<!--
+        <section id="video_section2" >
+            DEMOMP4 VIDEO TEST
+            <br>
+            <video id="demomp4_video" preload="none" controls src="resource/demo.mp4" />
+        </section>
+		-->
+
+        <!-- <source src="resource/demo.mp4" type="video/mp4"> -->
+
+        <!--
+        <section>
+            MP4 VIDEO TEST
+            <br>
+            <video id="mp4_video" controls>
+                <source src="resource/test.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        
+        <section>
+            3PG VIDEO TEST
+            <button onclick="captureFrame();">Create Preview Image</button>
+            <br>
+            <video id="3gp_video" controls>
+                <source src="resource/test.3gp" type="video/3gpp">
+            </video>
+        </section>
+        <section>
+            OGG VIDEO TEST
+            <button onclick="captureFrame();">Create Preview Image</button>
+            <br>
+            <video id="ogg_video" controls>
+                <source src="resource/test.ogv" type="video/ogg">
+            </video>
+        </section>
+        <section>
+            WEBM VIDEO TEST
+            <br>
+            <video id="webm_video" controls>
+                <source src="resource/test.webm" type="video/webm">
+            </video>
+        </section>
+        -->
+        
+    </body>
+</html>

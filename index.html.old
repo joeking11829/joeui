@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    	<meta charset="utf-8">
+        <title>JoeUI</title>
+        <link href="style/background.css" rel="stylesheet">
+
+    </head>
+
+    <script type="text/javascript">
+
+    var i = 0;
+
+    var imgs = [
+        {img:'style/images/tara01.jpg'},
+        {img:'style/images/tara02.jpg'},
+        {img:'style/images/tara03.png'},
+        {img:'style/images/tara04.jpg'},
+        {img:'style/images/tara05.jpg'},
+        {img:'style/images/tara06.jpg'},
+        {img:'style/images/tara07.jpg'},
+        {img:'style/images/tara08.jpg'},
+        {img:'style/images/tara09.jpg'},
+        {img:'style/images/tara10.jpg'},
+        {img:'style/images/snsd01.jpg'}
+    ];
+
+    function changeBackground() {
+        var img = new Image();
+        img.onload = reSizeImage;
+        img.src = imgs[(i%11)].img;
+        i++;
+    }
+
+    function reSizeImage(timeoutid) {
+        try{
+            var image = this;
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+    
+            var scaleX = 1280 / image.width;
+            var scaleY = 800 / image.height;
+            var scale = Math.max(scaleX, scaleY);
+
+            var sw = image.width * scale;
+            var sh = image.height * scale;
+
+            canvas.width = sw;
+            canvas.height = sh;
+
+            context.drawImage(image, 0, 0, sw, sh);
+
+            canvas.toBlob(function(resizedBlob) {
+                var photo = document.getElementById("photo");
+                var local_url = window.URL.createObjectURL(resizedBlob);
+                
+                var div_firstchild = document.querySelector("#photo > div");
+                var local_img;
+
+                local_img = document.createElement("div");
+                local_img.style.backgroundImage = "url(" + local_url + ")";
+                photo.appendChild(local_img);
+
+                local_img.classList.add("fadeOut");
+                local_img.addEventListener('animationend', function remove_onAnimationFadeOutEnd() {
+
+                    console.log("animation end");
+
+                    //remove animationend EventListener
+                    this.removeEventListener('animationend', remove_onAnimationFadeOutEnd);
+                    this.style = "display:none;";
+                    window.setTimeout(changeBackground, 0);
+                    this.parentNode.removeChild(this);
+
+                    /*
+                    this.addEventListener('animationend', function remove_onAnimationScaleEnd() {
+
+                        console.log("fadeOut animation end");
+
+                        this.style = "display:none;"
+                        this.parentNode.removeChild(this);
+
+                    }.bind(this));
+                    */
+                    //local_img.classList.remove("fadeOut");
+                    //setup first repeat trigger
+                    //window.setTimeout(changeBackground, 0);
+                }.bind(local_img));
+
+                /*
+                if(div_firstchild){
+                    //local_img = new Image();
+                    //local_img.setAttribute("src", local_url);
+                    //local_img = document.createElement("div");
+                    //local_img.style.backgroundImage = "url(" + local_url + ")";
+                    //photo.appendChild(local_img);
+                    
+                    local_img.addEventListener('animationend', function remove_onAnimationEnd() {
+
+                        console.log("scaleImg animation end");
+
+                        //remove animationend EventListener
+                        this.removeEventListener('animationend', remove_onAnimationEnd);
+                        local_img.classList.remove("scaleImg");
+                    }.bind(local_img)); 
+
+                    
+                    div_firstchild.addEventListener('animationend', function remove_onAnimationEnd() {
+
+                        console.log("fadeOut animation end");
+
+                        //remove animationend EventListener
+                        this.removeEventListener('animationend', remove_onAnimationEnd);
+                        this.parentNode.removeChild(div_firstchild);
+                        //setup repeat trigger
+                        window.setTimeout(changeBackground, 10000);
+                    }.bind(div_firstchild));
+
+                    local_img.classList.add("scaleImg");
+                    div_firstchild.classList.add("fadeOut");
+
+                }else{
+                    //local_img = new Image();
+                    //local_img.src = local_url;
+                    //local_img = document.createElement("div");
+                    //local_img.style.backgroundImage = "url(" + local_url + ")";
+                    //photo.appendChild(local_img);
+                    local_img.classList.add("fadeOut");
+                    local_img.addEventListener('animationend', function remove_onAnimationEnd() {
+
+                        console.log("first animation end");
+
+                        //remove animationend EventListener
+                        this.removeEventListener('animationend', remove_onAnimationEnd);
+                        local_img.classList.remove("fadeOut");
+                        //setup first repeat trigger
+                        window.setTimeout(changeBackground, 0);
+                    }.bind(local_img));   
+                }
+                */
+
+                /*
+                //clear timeout
+                if(timeoutid){
+                    window.clearTimeout(timeoutid);
+                }
+                */
+
+            }, 'image/jpeg');
+
+        }catch(error){
+            console.log('error: ' + error);
+        }
+    }
+
+    window.onload = function() {
+        //window.setInterval(changeBackground, 5000);
+        window.setTimeout(changeBackground, 0);
+    }
+    </script>
+
+    <body>
+        <div id="photo" >
+        </div>  
+    </body>
+</html>
